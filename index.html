@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let computer;
+        const weapons = ['rock','paper','scissors'];
+        let computer_wins = 0;
+        let user_wins = 0;
+        let game = 0;
+
+        function computerplay() {
+         let weapon = Math.floor(Math.random() * 3);
+         computer = weapons[weapon];
+            
+
+        }
+
+        function winner(playerselection,computerselection){
+            if ((playerselection === "rock" && computerselection === "scissors")||(playerselection === "scissors" && computerselection === "paper")||(playerselection === "paper" && computerselection === "rock")){
+
+                console.log(`${playerselection} beats ${computerselection}, You Win`);
+                user_wins += 1;
+            }
+            else if ((computerselection === "rock" && playerselection === "scissors")||(computerselection === "scissors" && playerselection === "paper")||(computerselection === "paper" && playerselection === "rock")){
+
+                console.log(`${computerselection} beats ${playerselection}, You lose`);
+                computer_wins += 1;
+            }
+            else {
+                console.log('tied game');
+            }
+
+        }
+
+
+        while(game < 5){
+            let user = prompt('select your weapon: ');
+            user = user.toLowerCase();
+            computerplay();
+            winner(user,computer);
+            game += 1;
+
+        }
+        
+        if(computer_wins > user_wins){
+            console.log("computer wins better luck next time");
+        
+        }
+        else{
+            console.log("Congratulations You win! ");
+        }
+
+  
+
+
+        
+
+    </script>
+    
+</body>
+</html>
